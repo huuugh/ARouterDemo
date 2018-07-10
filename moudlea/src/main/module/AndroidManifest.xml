@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.zje.moudlea">
+
+    <application
+        android:theme="@style/AppTheme">
+        <activity android:name=".TestAActivity">
+        </activity>
+        <activity android:name=".TestBActivity">
+        </activity>
+    </application>
+
+</manifest>

@@ -18,6 +18,15 @@ android {
             }
         }
 
+        sourceSets {
+            main {
+                if (isModule.toBoolean()) {
+                    manifest.srcFile 'src/main/module/AndroidManifest.xml'
+                } else {
+                    manifest.srcFile 'src/main/AndroidManifest.xml'
+                }
+            }
+        }
     }
     buildTypes {
         release {
@@ -25,6 +34,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
 }
 
 dependencies {

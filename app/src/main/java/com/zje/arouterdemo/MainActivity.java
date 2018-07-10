@@ -10,6 +10,7 @@ import android.widget.Toast;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.zje.data_moudle.User;
+import com.zje.moudlea.HelloService;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -48,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 jumpForResult();
+                ((HelloService) ARouter.getInstance().build("/service/helloservice").navigation()).sayHello("micro name ");
             }
         });
     }
@@ -63,6 +65,8 @@ public class MainActivity extends AppCompatActivity {
         ARouter.getInstance().build("/test/activity")
                 //可以添加跳转动画
                 //.withTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom)
+                //绿色通道，不会受到任何拦截
+                //.greenChannel()
                 .withLong("key1", 666L)
                 .withString("key3", "888")
                 .withObject("key4", new User("Jack", "male"))

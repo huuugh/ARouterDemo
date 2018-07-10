@@ -12,6 +12,7 @@ import butterknife.ButterKnife;
 
 @Route(path = "/test/activity")
 public class TestAActivity extends AppCompatActivity {
+    private String key4;
 
 
 /*    @Bind(R.id.displays)
@@ -27,11 +28,14 @@ public class TestAActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
-        String key4 = (String)extras.getSerializable("key4");
+        String why = extras.getString("why");
+        if (extras != null){
+            key4 = (String)extras.getSerializable("key4");
+        }
         if (key4 != null){
             String name = JSON.parseObject(key4).getString("name");
             String gender = JSON.parseObject(key4).getString("gender");
-            toDisplay.setText(name+"--"+gender);
+            toDisplay.setText(name+"--"+gender + "i am so "+ why);
         }
 
 

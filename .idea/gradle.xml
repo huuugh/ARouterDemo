@@ -9,6 +9,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/arouter_moudle" />
             <option value="$PROJECT_DIR$/data_moudle" />
             <option value="$PROJECT_DIR$/moudlea" />
           </set>

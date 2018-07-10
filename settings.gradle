@@ -1,1 +1,1 @@
-include ':app', ':moudlea', ':data_moudle'
+include ':app', ':moudlea', ':data_moudle', ':arouter_moudle'
