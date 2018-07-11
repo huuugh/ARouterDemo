@@ -8,7 +8,7 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 
 /**
  * Created by Hugh on 2018/7/10.
- *
+ *  暴露服务
  */
 
 @Route(path = "/service/helloservice")

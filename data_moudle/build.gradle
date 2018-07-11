@@ -41,4 +41,5 @@ dependencies {
     compile 'de.greenrobot:eventbus:3.0.0-beta1'
     testCompile 'junit:junit:4.12'
     compile project(':arouter_moudle')
+    compile 'com.alibaba:fastjson:1.2.47'
 }

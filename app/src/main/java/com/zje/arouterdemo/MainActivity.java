@@ -1,6 +1,7 @@
 package com.zje.arouterdemo;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -24,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
     Button btWithData;
     @Bind(R.id.bt_for_result)
     Button btForResult;
+    @Bind(R.id.bt_uri)
+    Button btUri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,9 +52,25 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 jumpForResult();
-                ((HelloService) ARouter.getInstance().build("/service/helloservice").navigation()).sayHello("micro name ");
             }
         });
+
+        btUri.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                jumpByUri();
+            }
+        });
+
+        //发现服务
+        ((HelloService) ARouter.getInstance().build("/service/helloservice").navigation()).sayHello("micro name ");
+    }
+
+    private void jumpByUri() {
+        ARouter.getInstance().build(Uri.parse("/test/activity"))
+                //可以添加跳转动画
+                //.withTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom)
+                .navigation();
     }
 
     private void simpleJump() {
@@ -70,13 +89,36 @@ public class MainActivity extends AppCompatActivity {
                 .withLong("key1", 666L)
                 .withString("key3", "888")
                 .withObject("key4", new User("Jack", "male"))
-                .navigation();
+                .navigation(/*this,new NavigationCallback() {
+                    @Override
+                    public void onFound(Postcard postcard) {
+
+                    }
+
+                    @Override
+                    public void onLost(Postcard postcard) {
+
+                    }
+
+                    @Override
+                    public void onArrival(Postcard postcard) {
+                        //在回调中finish，否则可能出现白屏
+                        finish();
+                    }
+
+                    @Override
+                    public void onInterrupt(Postcard postcard) {
+
+                    }
+                }*/);
     }
 
     private void jumpForResult() {
         ARouter.getInstance().build("/test/activity")
                 //可以添加跳转动画
                 //.withTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom)
+                //设置lunchMode
+                //.withFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                 .navigation(this,666);
     }
 

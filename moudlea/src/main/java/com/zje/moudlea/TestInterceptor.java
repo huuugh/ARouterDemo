@@ -10,7 +10,7 @@ import com.alibaba.android.arouter.facade.template.IInterceptor;
 
 /**
  * Created by Hugh on 2018/7/10.
- *
+ *  拦截器
  */
 
 @Interceptor(priority = 1,name = "Interceptor for test")

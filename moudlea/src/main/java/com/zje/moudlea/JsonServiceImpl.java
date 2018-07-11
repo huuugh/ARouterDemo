@@ -10,7 +10,7 @@ import java.lang.reflect.Type;
 
 /**
  * Created by Hugh on 2018/7/9.
- *
+ *  实现SerializationService用于传递对象
  */
 
 @Route(path = "/service/json")
